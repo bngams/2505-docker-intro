@@ -2,7 +2,7 @@ services:
   app:
     hostname: app1
     image: node:20.18.0-alpine3.20
-    command: sh -c "yarn install && yarn run dev"
+    command: sh -c "yarn install && yarn run start"
     depends_on:
       mysql:
         condition: service_healthy
@@ -34,7 +34,9 @@ services:
         max-file: '3'
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.app1.rule=PathPrefix(`/app1`)"
+      - "traefik.docker.network=public"
+      # - "traefik.http.routers.app1.rule=PathPrefix(`/app1/index.html`)"
+      - "traefik.http.routers.app1.rule=Host(`app1.docker.local`)"
   mysql:
     image: mysql:8.0
     healthcheck:

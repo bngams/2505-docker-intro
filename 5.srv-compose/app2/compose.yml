@@ -3,8 +3,8 @@ services:
   app2:
     # hostname: app2 => or with networks aliases
     image: traefik/whoami
-    ports:
-      - 127.0.0.1:8083:80 # not used after proxy
+    # ports:
+    #   - 127.0.0.1:8083:80 # not used after proxy
     networks:
       public:
         aliases:

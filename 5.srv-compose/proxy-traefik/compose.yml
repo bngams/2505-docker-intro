@@ -16,9 +16,9 @@ services:
       - "--log.level=DEBUG"
     ports:
       # The HTTP port
-      - "8888:80"
+      - 8888:80
       # The Web UI (enabled by --api.insecure=true || api.dashboard=true)
-      - "5000:8080"
+      - 8889:8080
     volumes:
       # So that Traefik can listen to the Docker events
       - /var/run/docker.sock:/var/run/docker.sock

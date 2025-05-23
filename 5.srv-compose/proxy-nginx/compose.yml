@@ -5,7 +5,7 @@ services:
     volumes:
       - ./nginx.conf:/etc/nginx/nginx.conf
     ports:
-      - 0.0.0.0:8080:80
+      - 0.0.0.0:80:80
     networks:
       - public
     # if want "auto reload / watch on nginx.conf changes"  
